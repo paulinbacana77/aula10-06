@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tarefas</title>
+</head>
+<body>
+    <div id="tarefas"></div>
+    <script>
+        fetch("http://localhost:3000/tarefas")
+        .then((dados) => dados.json())
+        .then((tarefas) => {
+            tarefas.forEach(tarefa => {
+                const p = document.createElement('p')
+                p.innerText = tarefa.id
+                document.getElementById('tarefas').appendChild(p)
+            })
+        })
+    </script>
+</body>
+</html>
